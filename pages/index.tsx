@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic';
 import Image from "next/image";
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import burnAnimation from './burnAnimation.json'
+import Claim from "../component/claimBaseGains/Claim";
 
 const Home: NextPage = () => {
   const { address } = useAccount();
@@ -50,7 +51,7 @@ const Home: NextPage = () => {
           <link href="/favicon.ico" rel="icon" />
         </Head>
         <Dashboard />
-    
+        <Claim/>
         
       </div>
     );

@@ -97,7 +97,8 @@ const Dashboard = () => {
     amountBurnt.data?.formatted,
   ]).toFixed(2) || "0";
 
-  const rebaseFixToCap = rebasePercent >= rebaseCap.toString() ? rebaseCap : rebasePercent;
+  const greaterThanZero = 0;
+  const rebaseFixToCap = rebasePercent >= rebaseCap.toString() ? rebaseCap : rebasePercent >= greaterThanZero.toString() ? rebasePercent : 0;
 
   const rebaseProfitOrLoss = (rebasePL.apply(undefined, [balance.data?.formatted, rebase_percent, rebaseFixToCap]) || "0");
 
