@@ -49,11 +49,12 @@ const Claim = () => {
     })
 
   async function submit() {
-    if (verifyClaimed == true) {
+    if (mounted && getAddress && verifyClaimed == true && address) {
       return <div>
         Already Claimed
       </div>
-    } else {
+    } 
+    else {
       writeContract({
         address: BASEG_TEST_CLAIM_ADDR,
         abi: claimABI,
