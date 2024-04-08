@@ -3,7 +3,7 @@ import { StandardMerkleTree } from "@openzeppelin/merkle-tree";
 import readTree from "../constant/readTree.json";
 import { useIsMounted } from '../useIsMounted';
 import { useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
-import { BASEG_TEST_CLAIM_ADDR, claimABI } from '../constant/rebaseABI';
+import { BASEG_CLAIM_ADDR, claimABI } from '../constant/rebaseABI';
 
 const Claim = () => {
   const [getAddress, setGetAddress] = useState<string>('');
@@ -38,7 +38,7 @@ const Claim = () => {
 
   const { data: verifyClaimed } = useReadContract({
     abi: claimABI,
-    address: BASEG_TEST_CLAIM_ADDR,
+    address: BASEG_CLAIM_ADDR,
     functionName: "airdropped",
     args: [address],
   });
@@ -56,7 +56,7 @@ const Claim = () => {
     } 
     else {
       writeContract({
-        address: BASEG_TEST_CLAIM_ADDR,
+        address: BASEG_CLAIM_ADDR,
         abi: claimABI,
         functionName: 'claim',
         args: [getIndex, getAmount, getProof],
